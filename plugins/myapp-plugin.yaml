@@ -1,0 +1,20 @@
+kind: "EntandoPlugin"
+apiVersion: "entando.org/v1"
+metadata:
+  name: "myapp-plugin"
+spec:
+  image: kerruba/myapp:0.0.1
+  replicas: 1
+  dbms: mysql
+  parameters: {}
+  ingressPath: "/myapp"
+  healthCheckPath: "/management/health"
+  securityLevel: "strict"
+  connectionConfigNames: []
+  permissions: []
+  roles:
+  - name: myapp-admin
+    code: myapp-admin
+  - name: conference-admin
+    code: "conference-admin"
+# entando-needle-descriptor-add-roles - Entando blueprint will add roles here
